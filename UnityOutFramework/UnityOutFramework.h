@@ -15,6 +15,9 @@ FOUNDATION_EXPORT double UnityOutFrameworkVersionNumber;
 FOUNDATION_EXPORT const unsigned char UnityOutFrameworkVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <UnityOutFramework/PublicHeader.h>
+#import <UnityOutFramework/Preprocessor.h>
+
+
 #import <UnityOutFramework/UnityInterface.h>
 #import <UnityOutFramework/UnityForwardDecls.h>
 #import <UnityOutFramework/UnityRendering.h>
