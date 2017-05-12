@@ -1,7 +1,6 @@
 #pragma once
 
 #import <QuartzCore/CADisplayLink.h>
-
 #include "PluginBase/RenderPluginDelegate.h"
 
 @class UnityView;

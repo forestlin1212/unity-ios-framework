@@ -188,8 +188,6 @@
 		848031E11C5160D700FCEAB7 /* UnityReplayKit_Scripting.mm in Sources */ = {isa = PBXBuildFile; fileRef = 848031E01C5160D700FCEAB7 /* UnityReplayKit_Scripting.mm */; };
 		84B742F68AE4F80925803405 /* Bulk_Generics_2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 684F4C94A5A2B4DC91DE0C10 /* Bulk_Generics_2.cpp */; };
 		84DC28F61C5137FE00BC67D7 /* UnityReplayKit.mm in Sources */ = {isa = PBXBuildFile; fileRef = 84DC28F51C5137FE00BC67D7 /* UnityReplayKit.mm */; };
-		852BCC131EC57EB100603200 /* UnityAppController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 852BCC0E1EC57C3E00603200 /* UnityAppController.h */; };
-		852BCC141EC57EB100603200 /* UnityView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 852BCC0F1EC57C3E00603200 /* UnityView.h */; };
 		85DF22BA1EBFA373008A37A8 /* UnityAdsConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 999475381A80DBC300178130 /* UnityAdsConfig.h */; };
 		85DF22BB1EBFA373008A37A8 /* AppDelegateListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AF7755E17997D1300341121 /* AppDelegateListener.h */; };
 		85DF22BC1EBFA373008A37A8 /* LifeCycleListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A292A9717992CE100409BA4 /* LifeCycleListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -321,17 +319,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		0A5324C51EC367C100CC4448 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = Headers;
-			dstSubfolderSpec = 6;
-			files = (
-				852BCC131EC57EB100603200 /* UnityAppController.h in CopyFiles */,
-				852BCC141EC57EB100603200 /* UnityView.h in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		83D0C1FD0E6C8D7700EBCE5D /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -428,8 +415,6 @@
 		850B4CDB8CC44CBD8FADA272 /* Il2CppCompilerCalculateTypeValues_8Table.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Il2CppCompilerCalculateTypeValues_8Table.cpp; path = Classes/Native/Il2CppCompilerCalculateTypeValues_8Table.cpp; sourceTree = SOURCE_ROOT; };
 		852B7CEF1EBBA20900D46E10 /* UnityOutFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnityOutFramework.h; sourceTree = "<group>"; };
 		852B7CF01EBBA20900D46E10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		852BCC0E1EC57C3E00603200 /* UnityAppController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnityAppController.h; sourceTree = "<group>"; };
-		852BCC0F1EC57C3E00603200 /* UnityView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnityView.h; sourceTree = "<group>"; };
 		85B248CF972C830AEC287ACF /* Bulk_mscorlib_4.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Bulk_mscorlib_4.cpp; path = Classes/Native/Bulk_mscorlib_4.cpp; sourceTree = SOURCE_ROOT; };
 		86E447848DBF4B0F7EA596F5 /* Bulk_Mono.Security_1.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Bulk_Mono.Security_1.cpp; path = Classes/Native/Bulk_Mono.Security_1.cpp; sourceTree = SOURCE_ROOT; };
 		8A0FED471649699200E9727D /* EAGLContextHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLContextHelper.h; sourceTree = "<group>"; };
@@ -685,20 +670,10 @@
 		852B7CEE1EBBA20900D46E10 /* UnityOutFramework */ = {
 			isa = PBXGroup;
 			children = (
-				852BCC0D1EC57C3E00603200 /* FlatPathHeaders */,
 				852B7CEF1EBBA20900D46E10 /* UnityOutFramework.h */,
 				852B7CF01EBBA20900D46E10 /* Info.plist */,
 			);
 			path = UnityOutFramework;
-			sourceTree = "<group>";
-		};
-		852BCC0D1EC57C3E00603200 /* FlatPathHeaders */ = {
-			isa = PBXGroup;
-			children = (
-				852BCC0E1EC57C3E00603200 /* UnityAppController.h */,
-				852BCC0F1EC57C3E00603200 /* UnityView.h */,
-			);
-			path = FlatPathHeaders;
 			sourceTree = "<group>";
 		};
 		8A3EDDC51615B7C1001839E9 /* UI */ = {
@@ -969,8 +944,6 @@
 				0ACBDF111EBF161F0080A2DF /* Sources */,
 				0ACBDF121EBF161F0080A2DF /* Frameworks */,
 				0ACBDF131EBF161F0080A2DF /* Headers */,
-				0ACBDF141EBF161F0080A2DF /* Resources */,
-				0A5324C51EC367C100CC4448 /* CopyFiles */,
 				852BCC081EC5687B00603200 /* ShellScript */,
 			);
 			buildRules = (
@@ -1070,13 +1043,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0ACBDF141EBF161F0080A2DF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		1D60588D0D05DD3D006BFB54 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1126,7 +1092,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "inputDirectory=$PROJECT_DIR/UnityOutFramework/FlatPathHeaders\noutputDirectory=${BUILD_DIR}/${TARGET_NAME}.framework/Headers\n\necho \"in $inputDirectory\"\necho \"out $outputDirectory\"\n\nif [ ! -d \"$outputDirectory\" ]; then\necho \"no out path: $outputDirectory\"\nfi\n\nfor file in \"$inputDirectory\"/*\n                     do\n                     echo \"copy file: $file\"\n                     #cp \"$file\" \"$outputDirectory/`basename \"$file\"`\"\n                     done";
+			shellScript = "inputDirectory=$PROJECT_DIR/UnityOutFramework/FlatPathHeaders\noutputDirectory=${BUILD_DIR}/${CONFIGURATION}-iphoneos/${TARGET_NAME}.framework/Headers\n\necho \"in $inputDirectory\"\necho \"out $outputDirectory\"\n\nif [ ! -d \"$outputDirectory\" ]; then\necho \"no out path,and create: $outputDirectory\"\nmkdir $outputDirectory\nfi\n\ncp -R $inputDirectory/. $outputDirectory/\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1421,6 +1387,7 @@
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = Classes/Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1501,6 +1468,7 @@
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = Classes/Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1581,6 +1549,7 @@
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = Classes/Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1662,10 +1631,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREFIX_HEADER = Classes/Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
