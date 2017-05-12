@@ -241,7 +241,10 @@ extern "C" void UnityRequestQuit()
         [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
 #endif
 
-    UnityInitApplicationNoGraphics([[[NSBundle mainBundle] bundlePath] UTF8String]);
+    //为了 framework 能正常运行，更改 bundlePath。---Forest Lin
+    //UnityInitApplicationNoGraphics([[[NSBundle mainBundle] bundlePath] UTF8String]);
+    NSBundle * bundle = [NSBundle bundleForClass:[self class]];
+    UnityInitApplicationNoGraphics([[bundle bundlePath] UTF8String]);
 
     [self selectRenderingAPI];
     [UnityRenderingView InitializeForAPI: self.renderingAPI];
