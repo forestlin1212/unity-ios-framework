@@ -101,9 +101,9 @@ UnityInitApplicationNoGraphics([[bundle bundlePath] UTF8String]);
 
 
 
-==以上，build target，顺利生成一个Unity framework。==
+**以上，build target，顺利生成一个Unity framework。**
 
-==以下，新建一个 iOS 工程，使用 Unity framework。==
+**以下，新建一个 iOS 工程，使用 Unity framework。**
 
 
 
@@ -125,9 +125,9 @@ Build Settings -> Other Linker Flags: 添加 `-force_load UnityOutFramework.fram
 
 由于添加了这个 flag，如果 Unity framework 中有`RegisterMonoModules.h`，`RegisterMonoModules.cpp`，会出现链接错误：`4 duplicate symbols: RegisterAllStrippedInternalCalls……`。所以在一开始的 framework 工程中要去除这2个文件。
 
-==这个设置非常的重要。没有这个设置，framework运行时会崩溃在`il2cpp::vm::MetadataCache::Initialize()`==
+**这个设置非常的重要。否则framework运行时会崩溃在**`il2cpp::vm::MetadataCache::Initialize()`
 
-==目前Google到的几乎所有人都失败在这里==，比如：
+**目前Google到的几乎所有人都失败在这里**，比如：
 
 [Build Unity app as framework | Unity Community](https://forum.unity3d.com/threads/build-unity-app-as-framework-then-consumed-by-another-app.430068/)
 
