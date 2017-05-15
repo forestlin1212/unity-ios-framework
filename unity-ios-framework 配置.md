@@ -51,10 +51,26 @@
 
 因为这些复制的头文件不能加入工程，否则会重定义。所以在 finder，项目的UnityOutFramework下新加一个目录：FlatPathHeaders。
 
-Build Phases->创建 Run Script
+![flat-path-headers](https://github.com/forestlin1212/unity-ios-framework/blob/master/help-images/flat-headers.png?raw=true)
+
+把公开的头文件中所有带有路径的头文件引用，改成没有路径。例如UnityView.h中：把
+
+```c++
+#include "Unity/GlesHelper.h"
+```
+
+改为：
+
+```c++
+#include "GlesHelper.h"
+```
+
+
+
+**Build Phases->创建 Run Script**
 
 ```sh
-inputDirectory=$PROJECT_DIR/UnityOutFramework/FlatPathHeaders
+inputDirectory=$PROJECT_DIR/${TARGET_NAME}/FlatPathHeaders
 outputDirectory=${BUILD_DIR}/${CONFIGURATION}-iphoneos/${TARGET_NAME}.framework/Headers
 
 echo "in $inputDirectory"
@@ -98,6 +114,8 @@ UnityInitApplicationNoGraphics([[bundle bundlePath] UTF8String]);
 **4. 在测试工程中，添加framework。**
 
 首先添加 Unity framework，然后添加需要使用的7个系统 framework。
+
+![system-frameworks](https://github.com/forestlin1212/unity-ios-framework/blob/master/help-images/system-framework.png?raw=true)
 
 
 
