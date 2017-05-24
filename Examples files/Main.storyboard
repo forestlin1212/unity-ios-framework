@@ -142,7 +142,7 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="viewToUnity" destination="c6h-3L-GkV" id="ob2-XY-cg4"/>
+                        <outlet property="fatherViewOfUnityView" destination="c6h-3L-GkV" id="SlY-qW-wfJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y8E-9l-xTI" userLabel="First Responder" sceneMemberID="firstResponder"/>

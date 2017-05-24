@@ -13,7 +13,8 @@
 
 @interface PIViewController : UIViewController
 {
-    IBOutlet UIView     *viewToUnity;
+    IBOutlet UIView     *fatherViewOfUnityView;
+    UIView*             unityView;
     UnityDefaultViewController *unityViewController;
     UnityAppController *unityController;
 }

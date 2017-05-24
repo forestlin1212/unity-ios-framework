@@ -12,17 +12,6 @@
 @interface PIViewController ()
 
 @end
-//测试Unity和Obj-c互调--Forest Lin
-#if defined(_cplusplus)
-extern "C"{
-#endif
-    void iosMethord(int code, const char* msg)
-    {
-        NSLog(@"%@", [[NSString alloc] initWithUTF8String: msg]);
-    }
-#if defined(_cplusplus)
-}
-#endif
 
 @implementation PIViewController
 
@@ -42,11 +31,14 @@ extern "C"{
     // Just setting Unity delegates and view to add it as subview for my main view.
     // This allow me to add a UIButton above the UnityView to popViewController or anything i want to make native in iOS.
     
-    unityViewController         = [[UnityDefaultViewController alloc] init];
     unityController             = (UnityAppController*)[[UIApplication sharedApplication] delegate];
-    unityViewController.view    = (UIView*)unityController.unityView;
+//    unityViewController         = [[UnityDefaultViewController alloc] init];
+//    
+//    unityViewController.view    = (UIView*)unityController.unityView;
+    unityView = (UIView*)unityController.unityView;
+        
+    [fatherViewOfUnityView addSubview:unityView];
     
-    [viewToUnity addSubview:unityViewController.view];
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,15 +65,15 @@ extern "C"{
 }
 -(void) setUnitySizeMax:(id)sender
 {
-    [unityViewController.view setBounds:[[UIScreen mainScreen] bounds]];
+    [unityView setBounds:[[UIScreen mainScreen] bounds]];
 }
 -(void) setUnitySizeMiddle:(id)sender
 {
-    [unityViewController.view setBounds:CGRectMake(0, 0, 350, 350)];
+    [unityView setBounds:CGRectMake(0, 0, 350, 350)];
 }
 -(void) setUnitySizeSmall:(id)sender
 {
-    [unityViewController.view setBounds:CGRectMake(0, 0, 250, 250)];
+    [unityView setBounds:CGRectMake(0, 0, 250, 250)];
 
 }
 

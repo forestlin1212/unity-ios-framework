@@ -64,9 +64,12 @@ extern "C" void UnityRenderEvent(int marker);
     UIStoryboard *storyBoard;
     storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 
-//    _rootController         = [[UnityDefaultViewController alloc] init];
+    
     _rootView               = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    _rootController.view    = _rootView;
+    
+    //给rootView一个UnityDefaultViewController，为了rootView可以适配屏幕旋转。
+    _rootController         = [[UnityDefaultViewController alloc] init];
+    _rootController.view    = _rootView;
     
     MainViewController *mainVC       = [storyBoard instantiateViewControllerWithIdentifier:@"idMainViewController"];
     
