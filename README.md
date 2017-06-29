@@ -1,7 +1,3 @@
-## Unity-iOS导出framework测试
+## Unity-iOS导出framework
 
-这是一个简单的Unity工程导出的xcode工程。尝试封装framework。
-
-目前，工程可以成功生成一个framework静态库。
-
-经过几番折腾，导出的 framework 在其他工程中可以生成通过。但是还没有运行测试。
+​	许多人希望把Unity的iOS工程打包成framework给其它项目使用，不幸的是，这个过程会有很多问题和错误，几乎没有人成功做到。这里提供一个可行的解决方案，希望对大家有帮助。
