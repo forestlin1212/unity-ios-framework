@@ -1,6 +1,6 @@
 # 配置记录
 
-**创建 target，Cocoa touch Framework类型。**工程名字为 UnityOutFramework
+创建 target，Cocoa touch Framework类型。工程名字为 UnityOutFramework
 
 ### 以下设置，为了让 target 可以build 成功。
 
@@ -101,13 +101,9 @@ UnityInitApplicationNoGraphics([[bundle bundlePath] UTF8String]);
 
 
 
+**以上，build target，顺利生成一个Unity framework。**
 
-
-<u>以上，build target，顺利生成一个Unity framework。</u>
-
-<u>以下，新建一个 iOS 工程，使用 Unity framework。</u>
-
-
+**以下，新建一个 iOS 工程，使用 Unity framework。**
 
 
 
@@ -129,9 +125,9 @@ Build Settings -> Other Linker Flags: 添加 `-force_load UnityOutFramework.fram
 
 由于添加了这个 flag，如果 Unity framework 中有`RegisterMonoModules.h`，`RegisterMonoModules.cpp`，会出现链接错误：`4 duplicate symbols: RegisterAllStrippedInternalCalls……`。所以在一开始的 framework 工程中要去除这2个文件。
 
-**这个设置非常的重要。没有这个设置，framework运行时会崩溃在 **`il2cpp::vm::MetadataCache::Initialize()`
+**这个设置非常的重要。否则framework运行时会崩溃在**`il2cpp::vm::MetadataCache::Initialize()`
 
-很多人都失败在这里，比如：
+**目前Google到的几乎所有人都失败在这里**，比如：
 
 [Build Unity app as framework | Unity Community](https://forum.unity3d.com/threads/build-unity-app-as-framework-then-consumed-by-another-app.430068/)
 
@@ -139,4 +135,6 @@ Build Settings -> Other Linker Flags: 添加 `-force_load UnityOutFramework.fram
 
 [How can I build the ios unity project as ios framework project? | Stack Overflow](http://stackoverflow.com/questions/34436341/how-can-i-build-the-ios-unity-project-as-ios-framework-project)
 
-虽然不清楚-force_load参数的细节原理，但是问题解决了，管用就行。
+原因可能是：`MetadataCache::Initialize()`没有被链接器加载，需要告诉链接器强制加载UnityOutFramework的所有内容。
+
+虽然不清楚细节原理，但是问题解决了，管用就行。祝你们好运！
