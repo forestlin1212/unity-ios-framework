@@ -51,7 +51,7 @@
 
 因为这些复制的头文件不能加入工程，否则会重定义。所以在 finder，项目的UnityOutFramework下新加一个目录：FlatPathHeaders。
 
-![flat-path-headers](https://github.com/forestlin1212/unity-ios-framework/blob/master/help-images/flat-headers.png?raw=true)
+![flat-path-headers](https://github.com/Octten/image-store/blob/master/unity-framework-md/flat-headers.png?raw=true)
 
 把公开的头文件中所有带有路径的头文件引用，改成没有路径。例如UnityView.h中：把
 
@@ -111,7 +111,7 @@ UnityInitApplicationNoGraphics([[bundle bundlePath] UTF8String]);
 
 首先添加 Unity framework，然后添加需要使用的7个系统 framework。
 
-![system-frameworks](https://github.com/forestlin1212/unity-ios-framework/blob/master/help-images/system-framework.png?raw=true)
+![system-frameworks](https://github.com/Octten/image-store/blob/master/unity-framework-md/system-framework.png?raw=true)
 
 
 
