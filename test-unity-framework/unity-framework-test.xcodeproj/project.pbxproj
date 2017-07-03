@@ -17,8 +17,8 @@
 		0A5D193B1EC219FA00045554 /* mainAppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A5D19351EC219FA00045554 /* mainAppController.mm */; };
 		0A5D193C1EC219FA00045554 /* MainViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A5D19371EC219FA00045554 /* MainViewController.mm */; };
 		0A5D193D1EC219FA00045554 /* PIViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A5D19391EC219FA00045554 /* PIViewController.mm */; };
-		0AC90B431EC45B1A008F7B2F /* UnityOutFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC90B421EC45B1A008F7B2F /* UnityOutFramework.framework */; };
 		0AC90B451EC467D8008F7B2F /* Data in Resources */ = {isa = PBXBuildFile; fileRef = 0AC90B441EC467D8008F7B2F /* Data */; };
+		8518DC791F0AAD1600E3B2F6 /* UnityOutFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8518DC781F0AAD1600E3B2F6 /* UnityOutFramework.framework */; };
 		8594323D1EBF96640029A408 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8594323C1EBF96640029A408 /* main.mm */; };
 		859432401EBF96640029A408 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8594323F1EBF96640029A408 /* AppDelegate.m */; };
 		859432431EBF96640029A408 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 859432421EBF96640029A408 /* ViewController.m */; };
@@ -54,8 +54,8 @@
 		0A5D19371EC219FA00045554 /* MainViewController.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = MainViewController.mm; sourceTree = "<group>"; };
 		0A5D19381EC219FA00045554 /* PIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIViewController.h; sourceTree = "<group>"; };
 		0A5D19391EC219FA00045554 /* PIViewController.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = PIViewController.mm; sourceTree = "<group>"; };
-		0AC90B421EC45B1A008F7B2F /* UnityOutFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UnityOutFramework.framework; sourceTree = "<group>"; };
 		0AC90B441EC467D8008F7B2F /* Data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Data; sourceTree = "<group>"; };
+		8518DC781F0AAD1600E3B2F6 /* UnityOutFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UnityOutFramework.framework; sourceTree = "<group>"; };
 		859432381EBF96640029A408 /* unity-framework-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "unity-framework-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8594323C1EBF96640029A408 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		8594323E1EBF96640029A408 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 				0A3A3B031EC0712100CE76AE /* CoreMedia.framework in Frameworks */,
 				0A3A3AFF1EC0701E00CE76AE /* AVFoundation.framework in Frameworks */,
 				0A3A3AFD1EC06F3400CE76AE /* AudioToolbox.framework in Frameworks */,
-				0AC90B431EC45B1A008F7B2F /* UnityOutFramework.framework in Frameworks */,
+				8518DC791F0AAD1600E3B2F6 /* UnityOutFramework.framework in Frameworks */,
 				85DF23091EBFC1E0008A37A8 /* libstdc++.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,7 +154,7 @@
 				0A3A3AFE1EC0701E00CE76AE /* AVFoundation.framework */,
 				0A3A3AFC1EC06F3400CE76AE /* AudioToolbox.framework */,
 				85DF23081EBFC1E0008A37A8 /* libstdc++.tbd */,
-				0AC90B421EC45B1A008F7B2F /* UnityOutFramework.framework */,
+				8518DC781F0AAD1600E3B2F6 /* UnityOutFramework.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
