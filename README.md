@@ -2,7 +2,7 @@
 
 This is a solution for building Unity-iOS project to Cocoa Touch Framework. 
 
-![flat-path-headers](https://github.com/Octten/image-store/blob/master/unity-framework-md/icon.png?raw=true)
+![icon](https://github.com/Octten/image-store/blob/master/unity-framework-md/icon.png?raw=true)
 
 ## What's this used for?
 
@@ -14,7 +14,7 @@ When you developed some 3D features by Unity, and you wanna provide these featur
 
 ## Preview
 
-
+![preview](https://github.com/Octten/image-store/blob/master/unity-framework-md/preview.gif?raw=true)
 
 ## Supported versions
 
