@@ -47,7 +47,7 @@ In UnityOutFramework.h,  import all the public headers. Don't contain  "UI/", "U
 #import <UnityOutFramework/UnityViewControllerBaseiOS.h>
 ```
 
-#### **2. Create flat path headers for framework. **
+#### 2. Create flat path headers for framework. 
 
 Create a folder named "FlatPathHeaders" in UnityOutFramework folder of project. 
 
@@ -84,7 +84,7 @@ fi
 cp -R $inputDirectory/. $outputDirectory/
 ```
 
-#### **3. Change Unity bundle path in UnityAppController.mm：**
+#### 3. Change Unity bundle path in UnityAppController.mm：
 
 in`didFinishLaunchingWithOptions` change:
 
@@ -107,7 +107,7 @@ UnityInitApplicationNoGraphics([[bundle bundlePath] UTF8String]);
 
 
 
-#### **4. Add frameworks to test projcet.**
+#### 4. Add frameworks to test projcet.
 
 First, add Unity framework.  Then, add 7 System frameworks we need. 
 
@@ -115,7 +115,7 @@ First, add Unity framework.  Then, add 7 System frameworks we need.
 
 
 
-#### **5. Copy Unity "data" folder to test project.  Make sure add by fold reference. **
+#### 5. Copy Unity "data" folder to test project.  Make sure add by fold reference. 
 
 ![system-frameworks](https://github.com/Octten/image-store/blob/master/unity-framework-md/data-folder.png?raw=true)
 
