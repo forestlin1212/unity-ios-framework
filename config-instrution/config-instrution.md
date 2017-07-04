@@ -1,10 +1,10 @@
-# 配置记录
+# Config instruction
 
-创建 target，Cocoa touch Framework类型。工程名字为 UnityOutFramework
+Create a new target, Cocoa touch Framework type, named **UnityOutFramework**
 
-### 以下设置，为了让 target 可以build 成功。
+##  Do these settings below, for building target successfully.
 
-1. `Classes` 和 `Libraries`下的所有代码文件，除了 `main.mm`，`RegisterMonoModules.h`，`RegisterMonoModules.cpp`，其它都打上 target。
+1. Target all code files in `Classes` and `Libraries`, except `main.mm`,`RegisterMonoModules.h`,`RegisterMonoModules.cpp`.
 2. Build Settings -> Header Search Paths: `$(inherited) "$(SRCROOT)/Classes" "$(SRCROOT)" $(SRCROOT)/Classes/Native $(SRCROOT)/Libraries/bdwgc/include $(SRCROOT)/Libraries/libil2cpp/include`
 3. Build Settings -> Library Search Paths: `$(inherited) "$(SRCROOT)" "$(SRCROOT)/Libraries"`
 4. Build Settings -> Prefix Header: `Classes/Prefix.pch`
@@ -14,18 +14,18 @@
 8. Build Settings -> Mach-O Type: `Static Library`
 
 
-### 以下设置，为了 framework 支持多个 cpu 架构
+## Do these settings below, for supporting multi achitectures.
 
-1. Build Settings -> Achitectures: `Standard achitectures`，这样可以支持多个 cpu 架构。
+1. Build Settings -> Achitectures: `Standard achitectures`
 2. Build Settings -> Build Avtive Achitecture Only: `No`
 
-### 以下设置，为了 framework 可以被测试工程正常的使用
+## Do these configs below,  for running framework in test project successfully.
 
-**1. 设置公开的头文件。**
+#### 1. Config public Header files.
 
-把需要公开的头文件设置为 public。可以在 Build Phases->Headers中设置；也可以选中文件，然后在File Inspector->Target Membership中更改。
+Set these important headers to public. You can do it in Build Phases->Headers,  Or select the files, then change File Inspector->Target Membership. 
 
-在UnityOutFramework.h中 import 所有公开的头文件。注意不要 UI Unity之类的路径。
+In UnityOutFramework.h,  import all the public headers. Don't contain  "UI/", "Unity/"  relative path. 
 
 ```objective-c
 // In this header, you should import all the public headers of your framework using statements like #import <UnityOutFramework/PublicHeader.h>
@@ -47,19 +47,19 @@
 #import <UnityOutFramework/UnityViewControllerBaseiOS.h>
 ```
 
-**2. 为 framework 添加扁平路径的公开头文件。我们复制一份需要更改的头文件，然后把修改的头文件覆盖到原始的头文件。**
+#### **2. Create flat path headers for framework. **
 
-因为这些复制的头文件不能加入工程，否则会重定义。所以在 finder，项目的UnityOutFramework下新加一个目录：FlatPathHeaders。
+Create a folder named "FlatPathHeaders" in UnityOutFramework folder of project. 
 
 ![flat-path-headers](https://github.com/Octten/image-store/blob/master/unity-framework-md/flat-headers.png?raw=true)
 
-把公开的头文件中所有带有路径的头文件引用，改成没有路径。例如UnityView.h中：把
+Delete the relative path in public header files. eg: UnityView.h：change
 
 ```c++
 #include "Unity/GlesHelper.h"
 ```
 
-改为：
+to:
 
 ```c++
 #include "GlesHelper.h"
@@ -67,7 +67,7 @@
 
 
 
-**Build Phases->创建 Run Script**
+**Build Phases->create Run Script**. This make sure the framework will use the flat-path headers.
 
 ```sh
 inputDirectory=$PROJECT_DIR/${TARGET_NAME}/FlatPathHeaders
@@ -84,15 +84,15 @@ fi
 cp -R $inputDirectory/. $outputDirectory/
 ```
 
-**3. 修改UnityAppController.mm中一段代码：**
+#### **3. Change Unity bundle path in UnityAppController.mm：**
 
-`didFinishLaunchingWithOptions`方法中，更改 Unity 启动的 bundle path。
+in`didFinishLaunchingWithOptions` change:
 
 ```objective-c
 UnityInitApplicationNoGraphics([[[NSBundle mainBundle] bundlePath] UTF8String]);
 ```
 
-改为：
+to:
 
 ```objective-c
 NSBundle * bundle = [NSBundle bundleForClass:[self class]];
@@ -101,33 +101,31 @@ UnityInitApplicationNoGraphics([[bundle bundlePath] UTF8String]);
 
 
 
-**以上，build target，顺利生成一个Unity framework。**
+**After these settings above, build the target UnityOutFramework, then Xcode will generate the Unity framework. **
 
-**以下，新建一个 iOS 工程，使用 Unity framework。**
+**Now,  we create a new iOS project, and test Unity framework. **
 
 
 
-**4. 在测试工程中，添加framework。**
+#### **4. Add frameworks to test projcet.**
 
-首先添加 Unity framework，然后添加需要使用的7个系统 framework。
+First, add Unity framework.  Then, add 7 System frameworks we need. 
 
 ![system-frameworks](https://github.com/Octten/image-store/blob/master/unity-framework-md/system-framework.png?raw=true)
 
 
 
-**5. 把 unity-iphone 工程中的 Data 目录，拷贝到测试工程中。引用方式加入工程。**
+#### **5. Copy Unity "data" folder to test project.  Make sure add by fold reference. **
 
+![system-frameworks](https://github.com/Octten/image-store/blob/master/unity-framework-md/data-folder.png?raw=true)
 
+#### 6.Other setting in test project.
 
-**6.测试工程的其它设置**
+Build Settings -> Other Linker Flags: add flag `-force_load UnityOutFramework.framework/UnityOutFramework`
 
-Build Settings -> Other Linker Flags: 添加 `-force_load UnityOutFramework.framework/UnityOutFramework`
+**This flag is very important. Without it, the project will crash at: **`il2cpp::vm::MetadataCache::Initialize()`
 
-由于添加了这个 flag，如果 Unity framework 中有`RegisterMonoModules.h`，`RegisterMonoModules.cpp`，会出现链接错误：`4 duplicate symbols: RegisterAllStrippedInternalCalls……`。所以在一开始的 framework 工程中要去除这2个文件。
-
-**这个设置非常的重要。否则framework运行时会崩溃在**`il2cpp::vm::MetadataCache::Initialize()`
-
-**目前Google到的几乎所有人都失败在这里**，比如：
+**Almost everybody on Internet is failed in here **,eg: 
 
 [Build Unity app as framework | Unity Community](https://forum.unity3d.com/threads/build-unity-app-as-framework-then-consumed-by-another-app.430068/)
 
@@ -135,6 +133,10 @@ Build Settings -> Other Linker Flags: 添加 `-force_load UnityOutFramework.fram
 
 [How can I build the ios unity project as ios framework project? | Stack Overflow](http://stackoverflow.com/questions/34436341/how-can-i-build-the-ios-unity-project-as-ios-framework-project)
 
-原因可能是：`MetadataCache::Initialize()`没有被链接器加载，需要告诉链接器强制加载UnityOutFramework的所有内容。
+I guess the reason is：the Linker did't load `MetadataCache::Initialize()` at all. So we need to tell Linker force load all symbols in UnityOutFramework. 
 
-虽然不清楚细节原理，但是问题解决了，管用就行。祝你们好运！
+Because of this flag, if Unity framework contains `RegisterMonoModules.h`,`RegisterMonoModules.cpp`, there will be an link error: `4 duplicate symbols: RegisterAllStrippedInternalCalls……`. That's why I exclude this 2 files in UnityOutFramework target at beginning. 
+
+
+
+**Build and run your test project, it will be perfect. Good Luck！**
